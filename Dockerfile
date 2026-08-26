@@ -33,5 +33,5 @@ ENV NODE_ENV=production
 ENV PORT=8000
 EXPOSE 8000
 
-# Automatically run pending database migrations, then start the Express server
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/index.js"]
+# Automatically sync database schema, then start the Express server
+CMD ["sh", "-c", "npx prisma db push --skip-generate && node dist/index.js"]
