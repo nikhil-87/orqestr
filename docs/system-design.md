@@ -181,7 +181,7 @@ erDiagram
 
     WORKFLOW_SCHEDULE {
         string id PK
-        string workflowId FK_UK
+        string workflowId FK
         string userId FK
         string cronExpression
         string timezone
@@ -195,7 +195,7 @@ erDiagram
 
     WEBHOOK {
         string id PK
-        string workflowId FK_UK
+        string workflowId FK
         string userId FK
         string token UK
         boolean enabled
@@ -805,7 +805,7 @@ sequenceDiagram
     SSE-->>User: Live Event: RUN_CANCELLED (UI updates to Cancelled badge)
     API-->>User: 200 OK { success: true, status: "CANCELLED" }
 
-    Note over Orch: In-flight worker jobs may complete,<br/>but Orchestrator terminal status guard drops completions:<br/>if (status === CANCELLED) return;<br/>Zero downstream tasks are dispatched.
+    Note over Orch: In-flight worker jobs may complete,<br/>but Orchestrator terminal status guard drops completions<br/>when status is CANCELLED.<br/>Zero downstream tasks are dispatched.
 ```
 
 ### 6.4 Ephemeral OAuth 2.0 State & One-Time Code Exchange Flow

@@ -310,7 +310,7 @@ erDiagram
 
     WORKFLOW_SCHEDULE {
         string id PK
-        string workflowId FK_UK
+        string workflowId FK
         string userId FK
         string cronExpression
         string timezone
@@ -324,7 +324,7 @@ erDiagram
 
     WEBHOOK {
         string id PK
-        string workflowId FK_UK
+        string workflowId FK
         string userId FK
         string token UK
         boolean enabled
