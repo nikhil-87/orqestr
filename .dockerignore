@@ -1,0 +1,12 @@
+node_modules
+.next
+dist
+build
+.git
+.vault
+*.log
+.env
+.env.local
+.env.*
+coverage
+dump.rdb
