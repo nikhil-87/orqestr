@@ -2,6 +2,19 @@
 
 # Orqestr
 
+<div align="center">
+
+[![Live Web App](https://img.shields.io/badge/Live_App-orqestr--client.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://orqestr-client.vercel.app/)
+[![API Docs](https://img.shields.io/badge/Swagger_API_Docs-Interactive-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://orqestr-api.onrender.com/api/docs)
+[![API Health](https://img.shields.io/badge/API_Health-Live-46a2f1?style=for-the-badge&logo=render&logoColor=white)](https://orqestr-api.onrender.com/health)
+
+</div>
+
+> 🚀 **Live Deployments**:
+> - **Web Application**: [https://orqestr-client.vercel.app](https://orqestr-client.vercel.app/)
+> - **Interactive Swagger API Docs**: [https://orqestr-api.onrender.com/api/docs](https://orqestr-api.onrender.com/api/docs)
+> - **Backend Health Check**: [`GET https://orqestr-api.onrender.com/health`](https://orqestr-api.onrender.com/health)
+
 A distributed multi-agent workflow platform where AI agents work together asynchronously to run multi-step pipelines. Built with Next.js, Express, BullMQ, Redis, PostgreSQL (via Prisma), and Groq for ultra-fast LLM inference.
 
 I built Orqestr because chaining AI models and API calls synchronously gets messy fast. Orqestr lets you visually connect agents on a canvas, passes data between them automatically, runs tasks across distributed queues with retries, and streams execution progress live to your browser in real time.
