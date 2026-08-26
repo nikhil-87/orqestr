@@ -13,7 +13,21 @@ const requireEnv = (key: string): string => {
     throw new Error(`Missing required environment variable: ${key}`);
   }
 
-  return value;
+  return value.trim();
+};
+
+const cleanRedisUrl = (raw: string): string => {
+  let cleaned = raw.trim();
+  try {
+    if (cleaned.includes("%20") || cleaned.includes("%3A") || cleaned.includes("%40")) {
+      cleaned = decodeURIComponent(cleaned).trim();
+    }
+  } catch {
+    // ignore decoding errors
+  }
+  cleaned = cleaned.replace(/^redis-cli\s+/i, "").trim();
+  cleaned = cleaned.replace(/^-u\s+/i, "").trim();
+  return cleaned;
 };
 
 const getString = (key: string, defaultValue: string): string => {
@@ -23,7 +37,7 @@ const getString = (key: string, defaultValue: string): string => {
     return defaultValue;
   }
 
-  return value;
+  return value.trim();
 };
 
 const getNumber = (key: string, defaultValue: number): number => {
@@ -52,7 +66,7 @@ const config = {
 
   DATABASE_URL: requireEnv("DATABASE_URL"),
 
-  REDIS_URL: requireEnv("REDIS_URL"),
+  REDIS_URL: cleanRedisUrl(requireEnv("REDIS_URL")),
 
   GROQ_API_KEY: requireEnv("GROQ_API_KEY"),
   GROQ_MODEL: getString("GROQ_MODEL", "openai/gpt-oss-120b"),
