@@ -115,5 +115,9 @@ temp/
 scratch/
 
 # ------------------------------------------------------------------------------
-# 10. Local-Only Private Notes & Vault (Kept Local per User Directive)
+# 10. Local-Only Private Notes & Vault
 # ------------------------------------------------------------------------------
+.vault/AUDIT_IMPLEMENTATION_LOG.md
+.vault/CODEBASE_AUDIT.md
+.vault/CONTRIBUTING.md
+.vault/FINAL_SECURITY_AUDIT.md
